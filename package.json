@@ -1,0 +1,37 @@
+{
+  "name": "brewline",
+  "version": "1.0.0",
+  "description": "Mobile-order café app: customer PWA, barista display and manager console on Cloudflare Workers + D1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite build && vite preview",
+    "test": "vitest run",
+    "db:migrate:local": "wrangler d1 migrations apply brewline --local",
+    "db:seed:local": "wrangler d1 execute brewline --local --file=seed/seed.sql",
+    "db:migrate": "wrangler d1 migrations apply brewline --remote",
+    "db:seed": "wrangler d1 execute brewline --remote --file=seed/seed.sql",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "hono": "^4.13.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.63.1",
+    "@cloudflare/workers-types": "^5.20261012.1",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vitest": "^3.2.7",
+    "wrangler": "^4.149.0"
+  },
+  "private": true
+}
